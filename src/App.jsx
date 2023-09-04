@@ -1,10 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Booking from "./Pages/Booking"
+import Delivery from "./Pages/Delivery"
+import Landing from "./Pages/Landing"
+import Menu from "./Pages/Menu"
 
 function App() {
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-blue-200">
-        <h1 className="text-[40px] text-blue-600 font-bold">Hello BonBon</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path='/booking' element={<Booking />} />
+        <Route path='/delivery' element={<Delivery />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
