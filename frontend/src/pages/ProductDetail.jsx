@@ -1,10 +1,8 @@
 import React from 'react'
 import Layout from '../Components/Layout'
 
-export default function Delivery() {
+export default function ProductDetail() {
   return (
-    <Layout>
-      Delivery
-    </Layout>
+    <Layout>ProductDetail</Layout>
   )
 }

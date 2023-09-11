@@ -7,7 +7,7 @@ export default function Navbar() {
     <section>
       {/* navbar */}
       <div className='p-1 pl-10 bg-lactic h-14 flex items-center'>
-        <a className='font-light text-3xl text-white' href="">BonBon</a>
+        <Link to='/' className='font-light text-3xl text-white'>BonBon</Link>
         <motion.div className='ml-[400px]'
           animate={{ scale: [0, 0, 1, 1] }}
           transition={{ times: [0, 0.1, 0.9, 1] }}>
