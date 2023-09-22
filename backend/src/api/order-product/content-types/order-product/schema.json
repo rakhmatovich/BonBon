@@ -4,24 +4,26 @@
   "info": {
     "singularName": "order-product",
     "pluralName": "order-products",
-    "displayName": "Order product"
+    "displayName": "Order Product"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_user": {
+    "order": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
+      "target": "api::order.order",
       "inversedBy": "order_products"
     },
-    "Address": {
-      "type": "text"
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
     },
-    "Phone": {
-      "type": "biginteger"
+    "amount": {
+      "type": "integer"
     },
     "total": {
       "type": "biginteger"

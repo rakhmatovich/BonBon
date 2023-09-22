@@ -66,11 +66,17 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "order_products": {
+    "orders": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::order-product.order-product",
+      "target": "api::order.order",
       "mappedBy": "users_permissions_user"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "customer"
     }
   }
 }
