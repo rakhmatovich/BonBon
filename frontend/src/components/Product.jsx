@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiShoppingCart } from 'react-icons/fi'
 
@@ -26,7 +26,7 @@ export default function Product({ name, price, thumb, id, description, product, 
           </figure>
         </Link>
         <div
-          onClick={() => addProduct(cart, setCart, product, 1)}
+          onClick={() => addProduct(cart, setCart, product, 1) }
           className='flex items-center justify-center absolute right-5 top-56 z-50 rounded-full text-center w-16 h-16 bg-lactic'>
           <FiShoppingCart className='w-8 h-8 scale-105 duration-300 hover:scale-125' />
         </div>

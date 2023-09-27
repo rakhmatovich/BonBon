@@ -7,7 +7,7 @@ import WallpaperCarousel from '../Components/WallpaperCarousel';
 const Landing = () => {
 
   return (
-    <Layout>
+    <Layout className='min-h-[747px]'>
       <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

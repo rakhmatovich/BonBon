@@ -17,12 +17,6 @@
     "description": {
       "type": "text"
     },
-    "brand": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::brand.brand",
-      "inversedBy": "products"
-    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",

@@ -14,7 +14,7 @@ export default function Footer() {
                 <div className="flex ">
                     <div className="w-3/12 px-[15px]">
                         <div className='capitalize font-light text-white transition-all ease-in-out duration-300 hover: pl-2'>
-                            <Link to='/home'>about us</Link>
+                            <Link to='/home'>Contact us</Link>
                             <br />
                             <Link to='/home'>our services</Link>
                             <br />
@@ -26,7 +26,7 @@ export default function Footer() {
                     </div>
                     <div className="w-3/12 px-4">
                         <div className='capitalize transition-all font-light text-white ease-in-out duration-300 hover: pl-2'>
-                            <Link to='/home'>FAQ</Link>
+                            <Link to='/home'>+998 (65) 220 55 59</Link>
                             <br />
                             <Link to='/home'>shipping</Link>
                             <br />

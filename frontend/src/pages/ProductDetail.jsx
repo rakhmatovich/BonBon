@@ -22,11 +22,11 @@ export default function ProductDetail() {
   // console.log(product)
 
   return (
-    <Layout>
+    <Layout className='min-h-[747px]'>
       <div className='flex w-[90%] mx-auto m-8'>
         <div className='w-1/2 h-[500px] m-2'>
           {!loading && (
-            <img src={`http://localhost:1337${product?.attributes.image?.data?.attributes.url}`} className={`w-[100%] h-full rounded-md object-cover`} />
+            <img src={`http://localhost:1337${product?.attributes.image?.data[0]?.attributes.url}`} className={`w-[100%] h-full rounded-md object-cover`} />
           )}
           {loading && <div>Loading...</div>}
         </div>

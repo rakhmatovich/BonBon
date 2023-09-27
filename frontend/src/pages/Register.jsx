@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Register() {
+    const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -17,12 +18,13 @@ export default function Register() {
         if (password === password2) {
             axios.post('http://localhost:1337/api/auth/local/register', {
                 username,
+                number,
                 email,
                 password,
                 confirmed: true
             })
-            .then(() => navigate('/home'))
-            .catch((err) => console.log(err))
+                .then(() => navigate('/home'))
+                .catch((err) => console.log(err))
         } else {
             alert('Password do not match')
         }
@@ -44,6 +46,16 @@ export default function Register() {
                                         onInput={event => setUsername(event.target.value)}
                                         value={username}
                                         placeholder='Enter username'
+                                    />
+                                </div>
+                                <div className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    <input
+                                        type="text"
+                                        id='text'
+                                        className='appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight transition-all ease-in-out duration-300 hover:bg-slate-300 focus:outline-none focus:bg-slate-300'
+                                        onInput={event => setNumber(event.target.value)}
+                                        value={number}
+                                        placeholder='Enter phone number'
                                     />
                                 </div>
                                 <div className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">

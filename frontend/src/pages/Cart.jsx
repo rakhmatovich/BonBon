@@ -4,9 +4,10 @@ import axios from "axios";
 import Layout from '../Components/Layout'
 
 export default function Cart() {
-
-    const navigate = useNavigate()
     const ORDER_PRODUCTS = 'http://localhost:1337/api/order-products'
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
+    const navigate = useNavigate()
+
     const createOrderProducts = item => {
         axios.post(ORDER_PRODUCTS, {
             data: {
@@ -20,7 +21,6 @@ export default function Cart() {
         return removeCartItem(item)
     }
 
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
     useEffect(() => localStorage.setItem('cart', JSON.stringify(cart)), [cart])
 
     const removeCartItem = cartItem => {
@@ -45,28 +45,29 @@ export default function Cart() {
         }))
     }
 
+
     return (
-        <Layout>
-            <div className=''>
-                <div className="">
+        <Layout className='min-h-[747px]'>
+            <div className='w-[1500px] mx-[18px] rounded-xl'>
+                <div>
                     {!cart || cart.length === 0 ? (
-                        <h1 className="text-2xl text-center text-gray-600">Nothing added yet</h1>)
+                        <h1 className="text-3xl my-5 font-bold text-center text-gray-600">Nothing added yet</h1>)
                         : (cart.map(cartItem => (
                             <div className='shadow-md'>
-                                <div className="h-12 flex items-center m-5">
-                                    <div
-                                        className="w-6">
+                                <div className="h-24 flex items-center m-5 rounded-xl">
+                                    <div className="w-24 h-24">
                                         <img
+                                            className='w-24 h-24 rounded-xl'
                                             alt="Placeholder image"
                                             src={`http://localhost:1337${cartItem.product.attributes.image.data[0].attributes.url}`}
                                         />
                                     </div>
-                                    <div className="w-12">
+                                    <div className="mx-4">
                                         <Link className=' text-xl' to={`/${cartItem.product.id}`}>
                                             {cartItem.product.attributes.name}
                                         </Link>
                                     </div>
-                                    <div className="w-12 flex items-center">
+                                    <div className="w-12 mx-4 flex items-center">
                                         <button
                                             className="rounded-md caret-red-600 w-[60px] h-[60px]"
                                             onClick={() => decrement(cartItem)}>
@@ -79,15 +80,15 @@ export default function Cart() {
                                             +
                                         </button>
                                     </div>
-                                    <div className="">
+                                    <div className="mx-4">
                                         <button
-                                            className='text-center rounded-md caret-green-600 w-[60px] h-[60px]'
-                                            onClick={() => createOrderProducts(cartItem)}>
+                                            onClick={() => createOrderProducts(cartItem)}
+                                            className='text-center mx-4 rounded-md caret-green-600 w-[60px] h-[60px]'>
                                             Buy
                                         </button>
 
                                         <button
-                                            className='text-center rounded-md caret-red-600 w-[60px] h-[60px]'
+                                            className='text-center rounded-md mx-4 caret-red-600 w-[60px] h-[60px]'
                                             onClick={() => removeCartItem(cartItem)}>
                                             Remove
                                         </button>
